@@ -74,10 +74,20 @@ class Tankas:
             self.generuoti_priesa()
             self.taskai += 50
 
+    def irasyti_rekorda(self):
+        vardas = input("Įrašykite savo vardą")
+        rekordas = {"vardas": vardas, "taskai": self.priesai}
+        try:
+            with open("rekordas.pkl", 'wb') as failas:
+                pickle.dump(rekordas, failas)
+        except:
+            print("Nepavyko įrašyti rekordų failo")
+
     def ar_pabaiga(self):
         if self.taskai <= 0:
             if self.gauti_rekorda()['taskai'] < self.priesai:
                 print(f"Naujas rekordas: {self.priesai}")
+                self.irasyti_rekorda()
             return True
         return False
 

@@ -8,7 +8,7 @@ while True:
     if tankas.ar_pabaiga():
         print("Baigėsi taškai. Žaidimo pabaiga")
         break
-    pasirinkimas = input("Judėti į:\ns - šiaurę\np - pietūs\nv - vakarai\nr - rytai\nx - šūvis\ni - info\nb - išeiti iš žaidimo\n")
+    pasirinkimas = input("Judėti į:\ns - šiaurę\np - pietūs\nv - vakarai\nr - rytai\nx - šūvis\ni - info\nr - rekordas\nb - išeiti iš žaidimo\n")
     if pasirinkimas == "s":
         tankas.siaure()
     if pasirinkimas == "p":
@@ -21,6 +21,9 @@ while True:
         tankas.suvis()
     if pasirinkimas == "i":
         tankas.info()
+    if pasirinkimas == "r":
+        rekordas = tankas.gauti_rekorda()
+        print(f"Rekordas: vardas - {rekordas['vardas']}, taškai - {rekordas['taskai']}")
     if pasirinkimas == "b":
         print("Viso gero")
         break
