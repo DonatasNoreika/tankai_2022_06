@@ -5,6 +5,9 @@ tankas = Tankas()
 tankas.generuoti_priesa()
 while True:
     tankas.info()
+    if tankas.ar_pabaiga():
+        print("Baigėsi taškai. Žaidimo pabaiga")
+        break
     pasirinkimas = input("Judėti į:\ns - šiaurę\np - pietūs\nv - vakarai\nr - rytai\nx - šūvis\ni - info\nb - išeiti iš žaidimo\n")
     if pasirinkimas == "s":
         tankas.siaure()

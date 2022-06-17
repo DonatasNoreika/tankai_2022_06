@@ -10,22 +10,27 @@ class Tankas:
         self.priesas_x = 0
         self.priesas_y = 0
         self.priesai = 0
+        self.taskai = 100
 
     def siaure(self):
         self.y += 1
         self.kryptis = "Š"
+        self.taskai -= 10
 
     def pietus(self):
         self.y -= 1
         self.kryptis = "P"
+        self.taskai -= 10
 
     def vakarai(self):
         self.x -= 1
         self.kryptis = "V"
+        self.taskai -= 10
 
     def rytai(self):
         self.x += 1
         self.kryptis = "R"
+        self.taskai -= 10
 
     def _tikrinti_pataikyma(self):
         if self.x == self.priesas_x and self.kryptis == "Š" and self.y < self.priesas_y:
@@ -55,10 +60,18 @@ class Tankas:
             print("PATAIKEI!")
             self.priesai += 1
             self.generuoti_priesa()
+            self.taskai += 50
+
+    def ar_pabaiga(self):
+        if self.taskai <= 0:
+            return True
+        return False
 
     def info(self):
         print(f"Koordinatės: X: {self.x}, Y: {self.y}")
-        print(f"Kryptis: {self.kryptis}")
-        print(f"Šūviai: {self.suviai}")
         print(f"Priešas: X: {self.priesas_x}, Y: {self.priesas_y}")
+        print(f"Kryptis: {self.kryptis}")
+        print(f"Taškai: {self.taskai}")
+        print("--------------------------")
+        print(f"Šūviai: {self.suviai}")
         print(f"Nušauti tankai: {self.priesai}")
