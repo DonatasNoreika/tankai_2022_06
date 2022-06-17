@@ -1,5 +1,5 @@
 from random import randint
-
+import pickle
 
 class Tankas:
     def __init__(self):
@@ -11,6 +11,18 @@ class Tankas:
         self.priesas_y = 0
         self.priesai = 0
         self.taskai = 100
+
+
+    def gauti_rekorda(self):
+        try:
+            with open('rekordas.pkl', 'rb') as file:
+                rekordas = pickle.load(file)
+        except:
+            print("Nėra tokio failo")
+            with open("rekordas.pkl", 'wb') as failas:
+                rekordas = {"vardas": "demo", "taskai": 0}
+                pickle.dump(rekordas, failas)
+        return rekordas
 
     def siaure(self):
         self.y += 1
@@ -64,6 +76,8 @@ class Tankas:
 
     def ar_pabaiga(self):
         if self.taskai <= 0:
+            if self.gauti_rekorda()['taskai'] < self.priesai:
+                print(f"Naujas rekordas: {self.priesai}")
             return True
         return False
 
