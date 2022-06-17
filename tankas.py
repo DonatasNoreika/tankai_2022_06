@@ -12,6 +12,20 @@ class Tankas:
         self.priesai = 0
         self.taskai = 100
 
+    def nupiesti_lauka(self):
+        print("- - - - - - - - - - -")
+        for y in range(5,-6, -1):
+            for x in range(-5, 6):
+                if self.y == y and self.x == x:
+                    print(f"0 ", end="")
+                elif self.priesas_y == y and self.priesas_x == x:
+                    print(f"X ", end="")
+                elif y == 0 or x == 0:
+                    print(f"+ ", end="")
+                else:
+                    print(f". ", end="")
+            print()
+        print("- - - - - - - - - - -")
 
     def gauti_rekorda(self):
         try:
@@ -56,8 +70,8 @@ class Tankas:
         return False
 
     def generuoti_priesa(self):
-        self.priesas_x = randint(-10, 10)
-        self.priesas_y = randint(-10, 10)
+        self.priesas_x = randint(-5, 5)
+        self.priesas_y = randint(-5, 5)
 
     def suvis(self):
         if self.kryptis == "Š":
@@ -99,3 +113,4 @@ class Tankas:
         print("--------------------------")
         print(f"Šūviai: {self.suviai}")
         print(f"Nušauti tankai: {self.priesai}")
+        self.nupiesti_lauka()
