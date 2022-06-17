@@ -2,7 +2,7 @@
 from tankas import Tankas
 
 tankas = Tankas()
-
+tankas.generuoti_priesa()
 while True:
     tankas.info()
     pasirinkimas = input("Judėti į:\ns - šiaurę\np - pietūs\nv - vakarai\nr - rytai\nx - šūvis\ni - info\nb - išeiti iš žaidimo\n")
